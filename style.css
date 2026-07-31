@@ -1043,7 +1043,8 @@ animation-fill-mode:forwards;
     }
 
     .music-title {
-        font-size: 28px;
+       color: black;
+       font-size: 28px;
     }
 
     .record-back p {  
