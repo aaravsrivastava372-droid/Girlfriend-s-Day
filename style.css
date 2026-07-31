@@ -1,0 +1,345 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    overflow-x:hidden;
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
+
+
+/* ==========================
+   STAR BACKGROUND
+========================== */
+
+#stars{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+
+    background-size:
+    180px 180px,
+    240px 240px,
+    300px 300px;
+
+    background-position:
+    0 0,
+    40px 60px,
+    100px 120px;
+
+    animation:twinkle 8s infinite alternate;
+
+    z-index:-3;
+}
+
+
+/* ==========================
+   MOON
+========================== */
+
+#moon{
+
+    position:fixed;
+
+    top:60px;
+
+    right:40px;
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle at 35% 35%,
+    #fffdf0,
+    #e8e4d7 70%,
+    #d7d1bf);
+
+    box-shadow:
+    0 0 40px rgba(255,255,255,.4),
+    0 0 100px rgba(255,255,255,.15);
+
+    z-index:-2;
+
+}
+
+
+/* ==========================
+   INTRO
+========================== */
+
+#intro{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+
+#intro-container{
+
+    max-width:700px;
+
+}
+
+
+#cursor{
+
+    font-size:50px;
+
+    animation:blink .8s infinite;
+
+}
+
+
+#intro-text{
+
+    font-size:2rem;
+
+    line-height:1.6;
+
+    margin-top:20px;
+
+    min-height:100px;
+
+}
+
+
+#tap-message{
+
+    margin-top:40px;
+
+    color:#ff8fc1;
+
+    opacity:.8;
+
+    animation:float 2s infinite;
+
+}
+
+
+
+/* ==========================
+   STORY
+========================== */
+
+#story{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+
+.story-container{
+
+    max-width:800px;
+
+}
+
+
+#storyText{
+
+    font-size:2rem;
+
+    line-height:1.8;
+
+}
+
+
+
+/* ==========================
+   TITLE
+========================== */
+
+#titleReveal{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+
+#girlfriendDay{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:4rem;
+
+    color:#ff69b4;
+
+    text-shadow:
+    0 0 15px #ff69b4,
+    0 0 30px #ff9fd1,
+    0 0 60px #ffbde0;
+
+}
+
+
+#aaratrika{
+
+    margin-top:30px;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:4rem;
+
+    color:white;
+
+}
+
+
+#scrollHint{
+
+    margin-top:60px;
+
+    font-size:1rem;
+
+    color:#ffd4e6;
+
+    animation:float 2s infinite;
+
+}
+
+
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes blink{
+
+    50%{
+
+        opacity:0;
+
+    }
+
+}
+
+
+@keyframes twinkle{
+
+    from{
+
+        opacity:.7;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+#girlfriendDay{
+
+    font-size:2.7rem;
+
+}
+
+#aaratrika{
+
+    font-size:3rem;
+
+}
+
+#storyText{
+
+    font-size:1.5rem;
+
+}
+
+#intro-text{
+
+    font-size:1.5rem;
+
+}
+
+#moon{
+
+    width:75px;
+
+    height:75px;
+
+}
+
+}
