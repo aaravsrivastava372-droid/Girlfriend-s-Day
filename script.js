@@ -546,3 +546,8 @@ const observer = new IntersectionObserver((entries) => {
 if(gallery) {
     observer.observe(gallery);
 }
+/* VINYL RECORD FLIP */
+
+function flipRecord(record) {
+    record.classList.toggle("flipped");
+}
