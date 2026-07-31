@@ -435,3 +435,54 @@ setTimeout(() => {
 console.log(
 "🌙 Project Moonlight — Chapter 1 Loaded Successfully ❤️"
 );
+// ===============================
+// CHAPTER 2
+// ===============================
+
+const chapter2Message =
+`The boy you've treated as a human for the first time, making him realise he matters and how he deserves everything in this world is returning all that in the form of love to the most gorgeous, creative and the most beautiful woman I know.
+
+This gift is just a really short reminder of my love for you.
+
+I can't express it in any way because love is felt, not expressed.
+
+I wonder what my life would've been like without you.
+
+And now here I am...
+
+Reminding you of everything you once reminded me.
+
+Everyone deserves to be loved.
+
+Everyone.
+
+And I'll love you till the end of the Doomsday Clock, ensuring I take this love of mine for you to our graves.`;
+
+const chapter2Typing =
+document.getElementById("chapter2Typing");
+
+let chapter2Started = false;
+
+window.addEventListener("scroll",()=>{
+
+    if(chapter2Started) return;
+
+    const section =
+    document.getElementById("chapter2");
+
+    const top =
+    section.getBoundingClientRect().top;
+
+    if(top < window.innerHeight-150){
+
+        chapter2Started = true;
+
+        typeText(
+            chapter2Typing,
+            chapter2Message,
+            28
+        );
+
+    }
+
+});
