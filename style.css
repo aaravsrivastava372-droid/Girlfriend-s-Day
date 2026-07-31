@@ -747,3 +747,143 @@ animation-fill-mode:forwards;
     }
 
 }
+.memory-gallery {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background: transparent;
+}
+
+.photo-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.memory-photo {
+    position: absolute;
+    width: 220px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: transform 0.5s ease, z-index 0.3s;
+    animation: flyIn 1.5s ease forwards;
+    opacity: 0;
+}
+
+/* Scattered memory positions */
+
+.photo1 {
+    top: 10%;
+    left: 12%;
+    transform: rotate(-12deg);
+    animation-delay: 0.2s;
+}
+
+.photo2 {
+    top: 20%;
+    right: 15%;
+    transform: rotate(14deg);
+    animation-delay: 0.5s;
+}
+
+.photo3 {
+    top: 45%;
+    left: 35%;
+    transform: rotate(-5deg);
+    animation-delay: 0.8s;
+}
+
+.photo4 {
+    bottom: 10%;
+    left: 15%;
+    transform: rotate(18deg);
+    animation-delay: 1.1s;
+}
+
+.photo5 {
+    bottom: 12%;
+    right: 18%;
+    transform: rotate(-15deg);
+    animation-delay: 1.4s;
+}
+
+
+.memory-photo:hover {
+    transform: scale(1.08) rotate(0deg);
+    z-index: 10;
+}
+
+
+/* Photos flying into the scene */
+
+@keyframes flyIn {
+    0% {
+        opacity: 0;
+        transform: translateY(200px) scale(0.3) rotate(0deg);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Enlarged photo view */
+
+.expanded-photo {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.expanded-photo img {
+    width: min(80vw, 500px);
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 15px;
+    animation: zoomPhoto 0.4s ease;
+}
+
+.expanded-photo p {
+    color: white;
+    font-size: 28px;
+    margin-top: 25px;
+    font-family: "Georgia", serif;
+    text-align: center;
+}
+
+
+@keyframes zoomPhoto {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* Mobile adjustment */
+
+@media(max-width:600px) {
+
+    .memory-photo {
+        width: 130px;
+        height: 170px;
+    }
+
+    .expanded-photo p {
+        font-size: 22px;
+    }
+}
