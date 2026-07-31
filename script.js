@@ -328,3 +328,101 @@ function createMeteor() {
     }, 2200);
 
 }
+// ======================================
+// RANDOM METEOR LOOP
+// ======================================
+
+function meteorLoop() {
+
+    createMeteor();
+
+    const nextTime =
+        5000 + Math.random() * 18000;
+
+    setTimeout(meteorLoop, nextTime);
+
+}
+
+setTimeout(meteorLoop, 4000);
+
+
+
+// ======================================
+// SUBTLE MOON GLOW
+// ======================================
+
+const moon =
+document.getElementById("moon");
+
+setInterval(() => {
+
+    moon.style.filter =
+        "brightness(" +
+        (1 + Math.random() * 0.08) +
+        ")";
+
+}, 1800);
+
+
+
+// ======================================
+// TITLE SHIMMER
+// ======================================
+
+const title =
+document.getElementById("title");
+
+setInterval(() => {
+
+    title.animate(
+
+        [
+
+            {
+                opacity:0.92,
+                transform:"scale(1)"
+            },
+
+            {
+                opacity:1,
+                transform:"scale(1.015)"
+            },
+
+            {
+                opacity:0.92,
+                transform:"scale(1)"
+            }
+
+        ],
+
+        {
+
+            duration:2600
+
+        }
+
+    );
+
+},3200);
+
+
+
+// ======================================
+// SHOOTING STAR ON LOAD
+// ======================================
+
+setTimeout(() => {
+
+    createMeteor();
+
+},2500);
+
+
+
+// ======================================
+// END OF CHAPTER 1
+// ======================================
+
+console.log(
+"🌙 Project Moonlight — Chapter 1 Loaded Successfully ❤️"
+);
