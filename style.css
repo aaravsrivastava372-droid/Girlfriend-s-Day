@@ -1263,22 +1263,26 @@ animation-fill-mode:forwards;
     margin: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 30px;
 }
 
-
 .promise-card {
+    width: 90%;
+    max-width: 700px;
     background: white;
     padding: 30px;
     border-radius: 25px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 25px;
     transform: translateY(60px);
     opacity: 0;
     transition: all 0.8s ease;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 
@@ -1295,7 +1299,7 @@ animation-fill-mode:forwards;
 
 
 .promise-card:hover {
-    transform: scale(1.05) rotate(0deg);
+    transform: scale(1.05);
     z-index: 5;
 }
 
