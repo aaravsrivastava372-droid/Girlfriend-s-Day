@@ -628,76 +628,90 @@ function openLetter(letter) {
     letter.classList.toggle("open");
 }
 /* 15 THINGS I LIKE ABOUT YOU - TYPEWRITER */
-const likes = [
-    "The way you care about people.",
-    "Your laughter.",
-    "Your ambitions which are really strong.",
-    "You always make my ordinary days better.",
-    "You never give up on me.",
-    "You make me laugh.",
-    "Even at your worst you try to be good for everyone.",
-    "You love people deeply.",
-    "You understand the line between morality and legality.",
-    "You stand for what's right, not for who's right.",
-    "You never leave my side.",
-    "You are the best daughter.",
-    "You are the best sister.",
-    "You are the bestest friend.",
-    "And you are the bestest bestest bestest girlfriend Aaratrikaaa ❤️"
-];
+/* 15 THINGS I LIKE - SIMPLE VERSION */
 
-let likeBox = document.getElementById("likeText");
+window.addEventListener("load", function () {
 
-let i = 0;
+    const likeBox = document.getElementById("likeText");
 
-function showLikes() {
+    if (!likeBox) return;
 
-    if (i < likes.length) {
-        likeBox.innerHTML += likes[i] + "<br><br>";
-        i++;
+    const likes = [
+        "The way you care about people.",
+        "Your laughter.",
+        "Your ambitions which are really strong.",
+        "You always make my ordinary days better.",
+        "You never give up on me.",
+        "You make me laugh.",
+        "Even at your worst you try to be good for everyone.",
+        "You love people deeply.",
+        "You understand the line between morality and legality.",
+        "You stand for what's right, not for who's right.",
+        "You never leave my side.",
+        "You are the best daughter.",
+        "You are the best sister.",
+        "You are the bestest friend.",
+        "And you are the bestest bestest bestest girlfriend Aaratrikaaa ❤️"
+    ];
 
-        setTimeout(showLikes, 800);
-    }
+    let index = 0;
 
-}
+    function addLine() {
 
-if (likeBox) {
-    showLikes();
-   }
-const hates = [
-    "I hate how you're so far from me.",
-    "I hate how you're so much more beautiful than me.",
-    "I hate how you always force me to confront my fears.",
-    "I hate whenever I'm the cause of your tears.",
-    "I hate how you're always feeling that you're not good.",
-    "I hate how you never forcefully snatch my food.",
-    "I hate the way you're always being treated.",
-    "I hate the way you're never nicely greeted.",
-    "And what I hate the most is the fact that every cell and every fragment of my soul could never hate you.",
-    "For they'll love you and will always do. ❤️"
-];
+        if (index < likes.length) {
 
+            likeBox.innerHTML += likes[index] + "<br><br>";
 
-const hateBox = document.getElementById("hateText");
+            index++;
 
-let hateIndex = 0;
-
-
-function showHates() {
-
-    if (hateBox && hateIndex < hates.length) {
-
-        hateBox.innerHTML += hates[hateIndex] + "<br><br>";
-
-        hateIndex++;
-
-        setTimeout(showHates, 1000);
+            setTimeout(addLine, 800);
+        }
 
     }
 
-}
+    addLine();
+
+});
+/* 10 THINGS I HATE - SIMPLE VERSION */
+
+window.addEventListener("load", function () {
+
+    const hateBox = document.getElementById("hateText");
+
+    if (!hateBox) return;
+
+    const hates = [
+        "I hate how you're so far from me.",
+        "I hate how you're so much more beautiful than me.",
+        "I hate how you always force me to confront my fears.",
+        "I hate whenever I'm the cause of your tears.",
+        "I hate how you're always feeling that you're not good.",
+        "I hate how you never forcefully snatch my food.",
+        "I hate the way you're always being treated.",
+        "I hate the way you're never nicely greeted.",
+        "And what I hate the most is the fact that every cell and every fragment of my soul could never hate you.",
+        "For they'll love you and will always do. ❤️"
+    ];
 
 
-if (hateBox) {
-    showHates();
-}
+    let index = 0;
+
+
+    function addHateLine() {
+
+        if (index < hates.length) {
+
+            hateBox.innerHTML += hates[index] + "<br><br>";
+
+            index++;
+
+            setTimeout(addHateLine, 900);
+
+        }
+
+    }
+
+
+    addHateLine();
+
+});
