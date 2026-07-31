@@ -127,6 +127,35 @@
 </div>
 
 </section>
+    <section class="memory-gallery" id="gallery">
+    <div class="photo-container">
+        <img src="aaratrika1.png" class="memory-photo photo1" onclick="openPhoto(this)">
+        <img src="aaratrika2.png" class="memory-photo photo2" onclick="openPhoto(this)">
+        <img src="aaratrika3.png" class="memory-photo photo3" onclick="openPhoto(this)">
+        <img src="aaratrika4.png" class="memory-photo photo4" onclick="openPhoto(this)">
+        <img src="aaratrika5.png" class="memory-photo photo5" onclick="openPhoto(this)">
+    </div>
+
+    <div class="expanded-photo" id="expandedPhoto" onclick="closePhoto()">
+        <img id="largeImage">
+        <p>You rule my gallery ❤️</p>
+    </div>
+</section>
+
+
+<script>
+function openPhoto(photo) {
+    const popup = document.getElementById("expandedPhoto");
+    const largeImage = document.getElementById("largeImage");
+
+    largeImage.src = photo.src;
+    popup.style.display = "flex";
+}
+
+function closePhoto() {
+    document.getElementById("expandedPhoto").style.display = "none";
+}
+</script>
     <!-- ===================================================== -->
     <!-- MUSIC -->
     <!-- ===================================================== -->
