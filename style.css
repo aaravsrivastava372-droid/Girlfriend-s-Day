@@ -1666,3 +1666,82 @@ animation-fill-mode:forwards;
     background: black;
     color: white;
 }
+/* SIMPLE FIX - PROMISES + LIKES */
+
+.promise-section {
+    padding: 60px 20px;
+    background: white;
+}
+
+.promise-title {
+    color: black !important;
+    text-align: center;
+    font-size: 35px;
+}
+
+.promise-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.promise-card {
+    width: 90%;
+    max-width: 700px;
+    background: #f5f5f5;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.promise-card span {
+    background: black;
+    color: white !important;
+    padding: 12px;
+    border-radius: 50%;
+}
+
+.promise-card p {
+    color: black !important;
+    font-size: 18px;
+    margin: 0;
+}
+
+
+/* 15 THINGS I LIKE */
+
+.likes-section {
+    min-height: 100vh;
+    background: white;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.likes-title {
+    color: black !important;
+    text-align: center;
+}
+
+.typewriter-container {
+    max-width: 700px;
+    text-align: center;
+}
+
+#likeText {
+    color: black !important;
+    font-size: 22px;
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+.cursor {
+    color: black !important;
+}
