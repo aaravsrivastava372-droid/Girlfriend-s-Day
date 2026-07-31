@@ -599,3 +599,26 @@ const lineObserver = new IntersectionObserver((entries) => {
 if(timeline) {
     lineObserver.observe(timeline);
 }
+/* 50 THINGS SCROLL REVEAL */
+
+const promiseCards = document.querySelectorAll(".promise-card");
+
+
+const promiseObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+
+    });
+
+}, {
+    threshold: 0.2
+});
+
+
+promiseCards.forEach(card => {
+    promiseObserver.observe(card);
+});
