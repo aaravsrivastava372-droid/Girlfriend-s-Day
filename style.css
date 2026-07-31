@@ -1264,15 +1264,13 @@ animation-fill-mode:forwards;
     display: flex;
     flex-direction: column;
     align-items: center;
-   color: red;
     gap: 30px;
 }
 
 .promise-card {
     width: 90%;
     max-width: 700px;
-    background: pink;
-   color: red;
+    background: white;
     padding: 30px;
     border-radius: 25px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
@@ -1563,4 +1561,108 @@ animation-fill-mode:forwards;
         font-size: 20px;
     }
 
+}
+/* FIXED OPEN WHEN LETTERS FLIP */
+
+.letter {
+    width: 300px;
+    height: 220px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.envelope,
+.letter-content {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    transition: transform 0.8s ease;
+}
+
+
+/* Front of letter */
+
+.envelope {
+    background: #fff7ed;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+
+.envelope span {
+    font-size: 45px;
+}
+
+
+.envelope h3 {
+    color: black;
+    text-align: center;
+    font-family: Georgia, serif;
+    padding: 0 20px;
+}
+
+
+
+/* Inside message */
+
+.letter-content {
+    background: white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+
+.letter-content p {
+    color: black;
+    text-align: center;
+    font-family: Georgia, serif;
+    line-height: 1.6;
+    font-size: 17px;
+}
+
+
+
+/* Flip */
+
+.letter.open .envelope {
+    transform: rotateY(180deg);
+}
+
+
+.letter.open .letter-content {
+    transform: rotateY(360deg);
+}
+/* FIX TEXT COLOR FOR PROMISES AND LIKES SECTIONS */
+
+.promise-section,
+.promise-section * {
+    color: black;
+}
+
+
+.likes-section,
+.likes-section * {
+    color: black;
+}
+
+
+/* Keep the promise number circles readable */
+
+.promise-card span {
+    background: black;
+    color: white;
 }
