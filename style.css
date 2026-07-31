@@ -1,6 +1,7 @@
-/* ==========================
-   RESET
-========================== */
+/* ==========================================================
+   PROJECT MOONLIGHT - CHAPTER 1
+   Part 2A
+========================================================== */
 
 *{
     margin:0;
@@ -13,47 +14,28 @@ html{
 }
 
 body{
-    background:#050816;
+    background:#040611;
+    color:#fff;
     overflow-x:hidden;
-    color:white;
     font-family:'Poppins',sans-serif;
 }
 
+/* ===========================
+   CANVAS
+=========================== */
 
-/* ==========================
-   STAR BACKGROUND
-========================== */
-
-#stars{
+#sky{
     position:fixed;
-    top:0;
-    left:0;
+    inset:0;
     width:100%;
     height:100%;
-    background:
-    radial-gradient(white 1px, transparent 1px),
-    radial-gradient(white 1px, transparent 1px),
-    radial-gradient(white 1px, transparent 1px);
-
-    background-size:
-    180px 180px,
-    240px 240px,
-    300px 300px;
-
-    background-position:
-    0 0,
-    40px 60px,
-    100px 120px;
-
-    animation:twinkle 8s infinite alternate;
-
-    z-index:-3;
+    z-index:-5;
+    display:block;
 }
 
-
-/* ==========================
+/* ===========================
    MOON
-========================== */
+=========================== */
 
 #moon{
 
@@ -63,198 +45,355 @@ body{
 
     right:40px;
 
-    width:110px;
+    width:120px;
 
-    height:110px;
+    height:120px;
 
     border-radius:50%;
 
     background:
-    radial-gradient(circle at 35% 35%,
-    #fffdf0,
-    #e8e4d7 70%,
-    #d7d1bf);
+    radial-gradient(circle at 35% 30%,
+    #fffef7 0%,
+    #ece7da 55%,
+    #d5d0c2 100%);
 
     box-shadow:
-    0 0 40px rgba(255,255,255,.4),
-    0 0 100px rgba(255,255,255,.15);
+    0 0 25px rgba(255,255,255,.25),
+    0 0 70px rgba(255,255,255,.15),
+    0 0 130px rgba(255,255,255,.08);
 
-    z-index:-2;
+    animation:moonFloat 7s ease-in-out infinite;
+
+    overflow:hidden;
+
+    z-index:-3;
 
 }
 
+/* Moon craters */
 
-/* ==========================
+#moon::before{
+
+content:"";
+
+position:absolute;
+
+width:18px;
+
+height:18px;
+
+border-radius:50%;
+
+background:rgba(180,180,180,.28);
+
+top:28px;
+
+left:30px;
+
+box-shadow:
+40px 12px rgba(180,180,180,.22),
+18px 55px rgba(180,180,180,.20),
+65px 58px rgba(180,180,180,.24);
+
+}
+
+#moon::after{
+
+content:"";
+
+position:absolute;
+
+inset:-25px;
+
+border-radius:50%;
+
+background:radial-gradient(circle,
+rgba(255,255,255,.18),
+transparent 72%);
+
+filter:blur(10px);
+
+}
+
+/* ===========================
    INTRO
-========================== */
+=========================== */
 
 #intro{
 
-    height:100vh;
+height:100vh;
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:center;
+align-items:center;
 
-    text-align:center;
+text-align:center;
 
-    padding:30px;
-
-}
-
-
-#intro-container{
-
-    max-width:700px;
+padding:25px;
 
 }
 
+#introBox{
+
+max-width:760px;
+
+}
 
 #cursor{
 
-    font-size:50px;
+font-size:60px;
 
-    animation:blink .8s infinite;
+font-weight:300;
 
-}
-
-
-#intro-text{
-
-    font-size:2rem;
-
-    line-height:1.6;
-
-    margin-top:20px;
-
-    min-height:100px;
+animation:blink .9s infinite;
 
 }
 
+#typewriter{
 
-#tap-message{
+margin-top:25px;
 
-    margin-top:40px;
+font-size:2rem;
 
-    color:#ff8fc1;
+line-height:1.8;
 
-    opacity:.8;
+min-height:120px;
 
-    animation:float 2s infinite;
+font-weight:300;
+
+letter-spacing:.4px;
 
 }
 
+#tapAnywhere{
 
+margin-top:55px;
 
-/* ==========================
+font-size:1rem;
+
+color:#ff8dbd;
+
+animation:float 2.5s ease-in-out infinite;
+
+opacity:.9;
+
+}
+
+/* ===========================
    STORY
-========================== */
+=========================== */
 
 #story{
 
-    height:100vh;
+height:100vh;
 
-    display:flex;
+display:none;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:center;
+align-items:center;
 
-    text-align:center;
+padding:30px;
 
-    padding:40px;
-
-}
-
-
-.story-container{
-
-    max-width:800px;
+text-align:center;
 
 }
 
+.storyWrapper{
 
-#storyText{
-
-    font-size:2rem;
-
-    line-height:1.8;
+max-width:850px;
 
 }
 
+#storyLine{
 
+font-size:2.1rem;
 
-/* ==========================
+line-height:1.8;
+
+font-weight:300;
+
+opacity:1;
+
+transition:opacity .8s ease,
+transform .8s ease;
+
+}
+
+/* ===========================
    TITLE
-========================== */
+=========================== */
 
 #titleReveal{
 
-    height:100vh;
+height:100vh;
 
-    display:flex;
+display:none;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:center;
+align-items:center;
 
-    text-align:center;
+text-align:center;
 
-}
-
-
-#girlfriendDay{
-
-    font-family:'Playfair Display',serif;
-
-    font-size:4rem;
-
-    color:#ff69b4;
-
-    text-shadow:
-    0 0 15px #ff69b4,
-    0 0 30px #ff9fd1,
-    0 0 60px #ffbde0;
+padding:20px;
 
 }
 
+#title{
 
-#aaratrika{
+font-family:'Playfair Display',serif;
 
-    margin-top:30px;
+font-size:4.5rem;
 
-    font-family:'Great Vibes',cursive;
+font-weight:700;
 
-    font-size:4rem;
+line-height:1.15;
 
-    color:white;
+background:linear-gradient(
+90deg,
+#ff8ac4,
+#ffd3ea,
+#ff7ebd
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+text-shadow:
+0 0 15px rgba(255,105,180,.45),
+0 0 35px rgba(255,182,215,.35);
+
+animation:titleGlow 3s ease-in-out infinite;
 
 }
 
+#name{
 
-#scrollHint{
+margin-top:30px;
 
-    margin-top:60px;
+font-family:'Great Vibes',cursive;
 
-    font-size:1rem;
+font-size:4rem;
 
-    color:#ffd4e6;
+font-weight:400;
 
-    animation:float 2s infinite;
+color:white;
 
+letter-spacing:2px;
+
+opacity:0;
+
+animation:fadeName 2s forwards;
+
+animation-delay:1.8s;
+
+}
+
+#scrollText{
+
+margin-top:70px;
+
+font-size:1rem;
+
+letter-spacing:1px;
+
+color:#ffd6e9;
+
+animation:float 2.2s infinite;
+
+opacity:0;
+
+animation-delay:3s;
+
+animation-fill-mode:forwards;
+
+}
+/* ==========================================================
+   PROJECT MOONLIGHT - CHAPTER 1
+   Part 2B
+========================================================== */
+
+
+/* ===========================
+   METEORS
+=========================== */
+
+#meteorContainer{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-2;
+}
+
+.meteor{
+    position:absolute;
+    width:180px;
+    height:2px;
+    background:linear-gradient(90deg,#ffffff,rgba(255,255,255,0));
+    border-radius:100px;
+    transform:rotate(-35deg);
+    opacity:0;
+    animation:meteor 2.2s linear forwards;
 }
 
 
 
-/* ==========================
+/* ===========================
+   FADE EFFECTS
+=========================== */
+
+.fadeOut{
+    opacity:0;
+    transform:translateY(-25px);
+}
+
+.fadeIn{
+    opacity:1;
+    transform:translateY(0px);
+}
+
+
+
+/* ===========================
+   TITLE SHIMMER
+=========================== */
+
+#title::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.55),
+    transparent);
+
+    transform:translateX(-120%);
+}
+
+
+
+/* ===========================
    ANIMATIONS
-========================== */
+=========================== */
 
 @keyframes blink{
 
-    50%{
+    0%,50%{
+
+        opacity:1;
+
+    }
+
+    51%,100%{
 
         opacity:0;
 
@@ -263,28 +402,12 @@ body{
 }
 
 
-@keyframes twinkle{
-
-    from{
-
-        opacity:.7;
-
-    }
-
-    to{
-
-        opacity:1;
-
-    }
-
-}
-
 
 @keyframes float{
 
     0%{
 
-        transform:translateY(0);
+        transform:translateY(0px);
 
     }
 
@@ -296,7 +419,7 @@ body{
 
     100%{
 
-        transform:translateY(0);
+        transform:translateY(0px);
 
     }
 
@@ -304,42 +427,201 @@ body{
 
 
 
-/* ==========================
-   MOBILE
-========================== */
+@keyframes moonFloat{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+
+
+@keyframes meteor{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+        translate(0,0)
+        rotate(-35deg);
+
+    }
+
+    15%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+        translate(-650px,650px)
+        rotate(-35deg);
+
+    }
+
+}
+
+
+
+@keyframes titleGlow{
+
+    0%{
+
+        filter:brightness(100%);
+
+    }
+
+    50%{
+
+        filter:brightness(145%);
+
+    }
+
+    100%{
+
+        filter:brightness(100%);
+
+    }
+
+}
+
+
+
+@keyframes fadeName{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+
+
+/* ===========================
+   RESPONSIVE
+=========================== */
 
 @media(max-width:768px){
 
-#girlfriendDay{
+    #moon{
 
-    font-size:2.7rem;
+        width:85px;
+        height:85px;
+
+        right:20px;
+        top:30px;
+
+    }
+
+    #cursor{
+
+        font-size:45px;
+
+    }
+
+    #typewriter{
+
+        font-size:1.45rem;
+        min-height:90px;
+
+    }
+
+    #storyLine{
+
+        font-size:1.55rem;
+
+    }
+
+    #title{
+
+        font-size:2.9rem;
+
+    }
+
+    #name{
+
+        font-size:3rem;
+
+    }
+
+    #scrollText{
+
+        margin-top:45px;
+
+        font-size:.95rem;
+
+    }
 
 }
 
-#aaratrika{
 
-    font-size:3rem;
 
-}
+/* ===========================
+   SCROLLBAR
+=========================== */
 
-#storyText{
+::-webkit-scrollbar{
 
-    font-size:1.5rem;
-
-}
-
-#intro-text{
-
-    font-size:1.5rem;
+    width:6px;
 
 }
 
-#moon{
+::-webkit-scrollbar-track{
 
-    width:75px;
-
-    height:75px;
+    background:#040611;
 
 }
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff6fad;
+
+    border-radius:100px;
+
+}
+
+
+
+/* ===========================
+   SELECTION
+=========================== */
+
+::selection{
+
+    background:#ff7ebd;
+
+    color:white;
 
 }
