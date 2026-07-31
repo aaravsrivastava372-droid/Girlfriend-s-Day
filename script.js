@@ -551,3 +551,51 @@ if(gallery) {
 function flipRecord(record) {
     record.classList.toggle("flipped");
 }
+/* TIMELINE SCROLL ANIMATION */
+
+const timelineItems = document.querySelectorAll(".timeline-item");
+
+const timelineObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+
+    });
+
+}, {
+    threshold: 0.2
+});
+
+
+timelineItems.forEach(item => {
+    timelineObserver.observe(item);
+});
+
+
+
+/* Animate timeline line when section appears */
+
+const timeline = document.querySelector(".timeline");
+
+const lineObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting) {
+            timeline.classList.add("timeline-active");
+        }
+
+    });
+
+}, {
+    threshold: 0.3
+});
+
+
+if(timeline) {
+    lineObserver.observe(timeline);
+}
