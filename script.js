@@ -1,54 +1,178 @@
-// =========================
-// INTRO MESSAGES
-// =========================
+/* ==========================================================
+   PROJECT MOONLIGHT - CHAPTER 1
+   Part 3A
+========================================================== */
 
-const introMessages = [
+// ===============================
+// CANVAS
+// ===============================
+
+const canvas = document.getElementById("sky");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+// ===============================
+// STARS
+// ===============================
+
+const stars = [];
+
+for (let i = 0; i < 600; i++) {
+
+    stars.push({
+
+        x: Math.random() * canvas.width,
+
+        y: Math.random() * canvas.height,
+
+        radius: Math.random() * 1.8 + 0.2,
+
+        alpha: Math.random(),
+
+        speed: Math.random() * 0.02 + 0.003,
+
+        direction: Math.random() > 0.5 ? 1 : -1
+
+    });
+
+}
+
+function drawStars() {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const gradient = ctx.createLinearGradient(
+        0,
+        0,
+        0,
+        canvas.height
+    );
+
+    gradient.addColorStop(0, "#02030a");
+    gradient.addColorStop(1, "#071124");
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    stars.forEach(star => {
+
+        star.alpha += star.speed * star.direction;
+
+        if (star.alpha >= 1) {
+
+            star.direction = -1;
+
+        }
+
+        if (star.alpha <= 0.15) {
+
+            star.direction = 1;
+
+        }
+
+        ctx.beginPath();
+
+        ctx.fillStyle =
+            "rgba(255,255,255," + star.alpha + ")";
+
+        ctx.arc(
+            star.x,
+            star.y,
+            star.radius,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fill();
+
+    });
+
+    requestAnimationFrame(drawStars);
+
+}
+
+drawStars();
+
+// ===============================
+// INTRO TEXT
+// ===============================
+
+const introLines = [
+
     "Hey...",
+
     "I made something for you.",
+
     "Wear your prettiest smile...",
-    "And scroll slowly."
+
+    "Because tonight...",
+
+    "I have a story to tell."
+
 ];
 
-const storyMessages = [
+const storyLines = [
+
     "We've known each other since 2013.",
+
     "Thirteen years.",
+
+    "We weren't always lovers.",
+
     "For years...",
+
     "We kept chasing the wrong people.",
+
     "Trying to earn love from people who never truly cared.",
+
     "Yet somehow...",
-    "Life kept bringing us back to each other.",
+
+    "Life kept bringing us back together.",
+
     "Again.",
+
     "And again.",
+
     "Every single time.",
-    "Maybe...",
-    "We were always meant to find our way back.",
-    "Then one day...",
-    "We finally realised what we truly meant to each other.",
-    "Our friendship became something even more beautiful."
+
+    "Until one day...",
+
+    "We finally realised what we truly meant to each other."
+
 ];
 
-const introText = document.getElementById("intro-text");
-const storyText = document.getElementById("storyText");
+const typewriter =
+document.getElementById("typewriter");
 
-const introSection = document.getElementById("intro");
-const storySection = document.getElementById("story");
-const revealSection = document.getElementById("titleReveal");
+const storyLine =
+document.getElementById("storyLine");
 
-const tapMessage = document.getElementById("tap-message");
+const intro =
+document.getElementById("intro");
 
-const music = document.getElementById("bgMusic");
+const story =
+document.getElementById("story");
 
-storySection.style.display = "none";
-revealSection.style.display = "none";
+const reveal =
+document.getElementById("titleReveal");
+
+const music =
+document.getElementById("music");
 
 let started = false;
 
-
-// =========================
+// ===============================
 // TYPEWRITER
-// =========================
+// ===============================
 
-function typeWriter(element, text, speed = 55) {
+function typeText(element, text, speed = 55) {
 
     return new Promise(resolve => {
 
@@ -58,7 +182,7 @@ function typeWriter(element, text, speed = 55) {
 
         function typing() {
 
-            if(i < text.length){
+            if (i < text.length) {
 
                 element.innerHTML += text.charAt(i);
 
@@ -68,7 +192,7 @@ function typeWriter(element, text, speed = 55) {
 
             }
 
-            else{
+            else {
 
                 resolve();
 
@@ -81,27 +205,31 @@ function typeWriter(element, text, speed = 55) {
     });
 
 }
+// ======================================
+// PLAY INTRO
+// ======================================
 
+async function playIntro() {
 
-// =========================
-// INTRO
-// =========================
+    document.getElementById("tapAnywhere").style.display = "none";
 
-async function playIntro(){
+    for (const line of introLines) {
 
-    tapMessage.style.display="none";
+        await typeText(typewriter, line);
 
-    for(const line of introMessages){
+        await wait(1700);
 
-        await typeWriter(introText,line);
+        typewriter.classList.add("fadeOut");
 
-        await new Promise(r=>setTimeout(r,1800));
+        await wait(800);
 
-        introText.innerHTML="";
+        typewriter.classList.remove("fadeOut");
+
+        typewriter.innerHTML = "";
 
     }
 
-    introSection.style.display="none";
+    intro.style.display = "none";
 
     playStory();
 
@@ -109,80 +237,94 @@ async function playIntro(){
 
 
 
-// =========================
-// STORY
-// =========================
+// ======================================
+// PLAY STORY
+// ======================================
 
-async function playStory(){
+async function playStory() {
 
-    storySection.style.display="flex";
+    story.style.display = "flex";
 
-    for(const line of storyMessages){
+    for (const line of storyLines) {
 
-        await typeWriter(storyText,line);
+        await typeText(storyLine, line, 45);
 
-        await new Promise(r=>setTimeout(r,1800));
+        await wait(1900);
 
-        storyText.style.opacity=".25";
+        storyLine.classList.add("fadeOut");
 
-        await new Promise(r=>setTimeout(r,400));
+        await wait(700);
 
-        storyText.style.opacity="1";
+        storyLine.classList.remove("fadeOut");
 
-        storyText.innerHTML="";
+        storyLine.innerHTML = "";
 
     }
 
-    storySection.style.display="none";
+    story.style.display = "none";
 
-    revealSection.style.display="flex";
+    showTitle();
 
 }
 
 
 
-// =========================
-// MUSIC
-// =========================
+// ======================================
+// TITLE REVEAL
+// ======================================
 
-document.body.addEventListener("click",()=>{
+function showTitle() {
 
-    if(started) return;
+    reveal.style.display = "flex";
 
-    started=true;
+}
 
-    music.play().catch(()=>{});
+
+
+// ======================================
+// START EVERYTHING
+// ======================================
+
+document.body.addEventListener("click", () => {
+
+    if (started) return;
+
+    started = true;
+
+    music.play().catch(() => {});
 
     playIntro();
 
-});
+}, { once: true });
 
 
 
-// =========================
-// SHOOTING STARS
-// =========================
+// ======================================
+// METEORS
+// ======================================
 
-const shootingContainer=document.getElementById("shooting-stars");
+const meteorContainer =
+document.getElementById("meteorContainer");
 
-function createStar(){
+function createMeteor() {
 
-    const star=document.createElement("div");
+    const meteor =
+    document.createElement("div");
 
-    star.className="shooting-star";
+    meteor.className = "meteor";
 
-    star.style.top=Math.random()*40+"%";
+    meteor.style.top =
+        Math.random() * 35 + "%";
 
-    star.style.left=(60+Math.random()*30)+"%";
+    meteor.style.left =
+        60 + Math.random() * 30 + "%";
 
-    shootingContainer.appendChild(star);
+    meteorContainer.appendChild(meteor);
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
-        star.remove();
+        meteor.remove();
 
-    },2000);
+    }, 2200);
 
 }
-
-setInterval(createStar,12000);
