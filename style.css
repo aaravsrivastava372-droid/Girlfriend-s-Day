@@ -625,3 +625,100 @@ animation-fill-mode:forwards;
     color:white;
 
 }
+/* ========================= */
+/* CHAPTER 2 */
+/* ========================= */
+
+#chapter2{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:8vw;
+
+    position:relative;
+
+}
+
+.chapter2-text{
+
+    width:50%;
+
+}
+
+#chapter2Typing{
+
+    font-size:2rem;
+
+    color:white;
+
+    line-height:1.8;
+
+    font-weight:300;
+
+}
+
+.chapter2-image{
+
+    width:40%;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+#girlImage{
+
+    width:320px;
+
+    border-radius:25px;
+
+    box-shadow:
+
+        0 0 40px rgba(255,150,220,.45);
+
+    animation:
+
+        floatPhoto 5s ease-in-out infinite;
+
+}
+
+@keyframes floatPhoto{
+
+    0%{
+
+        transform:
+
+        translateY(0px)
+
+        rotate(-2deg);
+
+    }
+
+    50%{
+
+        transform:
+
+        translateY(-18px)
+
+        rotate(2deg);
+
+    }
+
+    100%{
+
+        transform:
+
+        translateY(0px)
+
+        rotate(-2deg);
+
+    }
+
+}
