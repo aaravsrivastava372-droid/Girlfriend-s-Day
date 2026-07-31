@@ -628,7 +628,6 @@ function openLetter(letter) {
     letter.classList.toggle("open");
 }
 /* 15 THINGS I LIKE ABOUT YOU - TYPEWRITER */
-
 const likes = [
     "The way you care about people.",
     "Your laughter.",
@@ -647,66 +646,58 @@ const likes = [
     "And you are the bestest bestest bestest girlfriend Aaratrikaaa ❤️"
 ];
 
+let likeBox = document.getElementById("likeText");
 
-let likeIndex = 0;
-let charIndex = 0;
-let currentText = "";
+let i = 0;
+
+function showLikes() {
+
+    if (i < likes.length) {
+        likeBox.innerHTML += likes[i] + "<br><br>";
+        i++;
+
+        setTimeout(showLikes, 800);
+    }
+
+}
+
+if (likeBox) {
+    showLikes();
+   }
+const hates = [
+    "I hate how you're so far from me.",
+    "I hate how you're so much more beautiful than me.",
+    "I hate how you always force me to confront my fears.",
+    "I hate whenever I'm the cause of your tears.",
+    "I hate how you're always feeling that you're not good.",
+    "I hate how you never forcefully snatch my food.",
+    "I hate the way you're always being treated.",
+    "I hate the way you're never nicely greeted.",
+    "And what I hate the most is the fact that every cell and every fragment of my soul could never hate you.",
+    "For they'll love you and will always do. ❤️"
+];
 
 
-function typeLikes() {
+const hateBox = document.getElementById("hateText");
 
-    const textBox = document.getElementById("likeText");
-
-    if (!textBox) return;
+let hateIndex = 0;
 
 
-    if (likeIndex < likes.length) {
+function showHates() {
 
-        if (charIndex < likes[likeIndex].length) {
+    if (hateBox && hateIndex < hates.length) {
 
-            currentText += likes[likeIndex][charIndex];
-            textBox.innerHTML = currentText;
-            charIndex++;
+        hateBox.innerHTML += hates[hateIndex] + "<br><br>";
 
-            setTimeout(typeLikes, 50);
+        hateIndex++;
 
-        } 
-        
-        else {
-
-            currentText += "\n\n";
-            textBox.innerHTML = currentText;
-
-            likeIndex++;
-            charIndex = 0;
-
-            setTimeout(typeLikes, 1000);
-
-        }
+        setTimeout(showHates, 1000);
 
     }
 
 }
 
 
-const likesSection = document.querySelector(".likes-section");
-
-const likesObserver = new IntersectionObserver((entries) => {
-
-    entries.forEach(entry => {
-
-        if(entry.isIntersecting) {
-            typeLikes();
-            likesObserver.disconnect();
-        }
-
-    });
-
-}, {
-    threshold: 0.4
-});
-
-
-if(likesSection) {
-    likesObserver.observe(likesSection);
+if (hateBox) {
+    showHates();
 }
