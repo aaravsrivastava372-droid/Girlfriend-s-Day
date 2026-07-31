@@ -1046,8 +1046,9 @@ animation-fill-mode:forwards;
         font-size: 28px;
     }
 
-    .record-back p {
-        font-size: 15px;
+    .record-back p {  
+    color: black;
+       font-size: 15px;
     }
 
 }
