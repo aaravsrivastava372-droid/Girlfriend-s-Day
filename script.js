@@ -627,3 +627,86 @@ promiseCards.forEach(card => {
 function openLetter(letter) {
     letter.classList.toggle("open");
 }
+/* 15 THINGS I LIKE ABOUT YOU - TYPEWRITER */
+
+const likes = [
+    "The way you care about people.",
+    "Your laughter.",
+    "Your ambitions which are really strong.",
+    "You always make my ordinary days better.",
+    "You never give up on me.",
+    "You make me laugh.",
+    "Even at your worst you try to be good for everyone.",
+    "You love people deeply.",
+    "You understand the line between morality and legality.",
+    "You stand for what's right, not for who's right.",
+    "You never leave my side.",
+    "You are the best daughter.",
+    "You are the best sister.",
+    "You are the bestest friend.",
+    "And you are the bestest bestest bestest girlfriend Aaratrikaaa ❤️"
+];
+
+
+let likeIndex = 0;
+let charIndex = 0;
+let currentText = "";
+
+
+function typeLikes() {
+
+    const textBox = document.getElementById("likeText");
+
+    if (!textBox) return;
+
+
+    if (likeIndex < likes.length) {
+
+        if (charIndex < likes[likeIndex].length) {
+
+            currentText += likes[likeIndex][charIndex];
+            textBox.innerHTML = currentText;
+            charIndex++;
+
+            setTimeout(typeLikes, 50);
+
+        } 
+        
+        else {
+
+            currentText += "\n\n";
+            textBox.innerHTML = currentText;
+
+            likeIndex++;
+            charIndex = 0;
+
+            setTimeout(typeLikes, 1000);
+
+        }
+
+    }
+
+}
+
+
+const likesSection = document.querySelector(".likes-section");
+
+const likesObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting) {
+            typeLikes();
+            likesObserver.disconnect();
+        }
+
+    });
+
+}, {
+    threshold: 0.4
+});
+
+
+if(likesSection) {
+    likesObserver.observe(likesSection);
+}
