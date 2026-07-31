@@ -673,19 +673,44 @@ animation-fill-mode:forwards;
 
 }
 
+.polaroid{
+
+    background:white;
+
+    padding:18px 18px 55px;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.45);
+
+    transform:rotate(-4deg);
+
+    animation:floatPhoto 5s ease-in-out infinite;
+
+}
+
 #girlImage{
 
     width:320px;
 
-    border-radius:25px;
+    display:block;
 
-    box-shadow:
+    border-radius:4px;
 
-        0 0 40px rgba(255,150,220,.45);
+}
 
-    animation:
+.caption{
 
-        floatPhoto 5s ease-in-out infinite;
+    margin-top:18px;
+
+    text-align:center;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:2rem;
+
+    color:#333;
 
 }
 
