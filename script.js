@@ -486,3 +486,63 @@ window.addEventListener("scroll",()=>{
     }
 
 });
+function openPhoto(photo) {
+    const popup = document.getElementById("expandedPhoto");
+    const largeImage = document.getElementById("largeImage");
+
+    largeImage.src = photo.src;
+    popup.style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closePhoto() {
+    const popup = document.getElementById("expandedPhoto");
+
+    popup.style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+
+/* Add a small floating movement to the scattered photos */
+
+const photos = document.querySelectorAll(".memory-photo");
+
+photos.forEach((photo) => {
+
+    photo.addEventListener("mousemove", () => {
+        photo.style.transform += " translateY(-8px)";
+    });
+
+    photo.addEventListener("mouseleave", () => {
+        photo.style.transform = "";
+    });
+
+});
+
+
+/* Make photos appear when the gallery enters the screen */
+
+const gallery = document.querySelector(".memory-gallery");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting) {
+            photos.forEach(photo => {
+                photo.style.animationPlayState = "running";
+            });
+        }
+
+    });
+
+}, {
+    threshold: 0.3
+});
+
+
+if(gallery) {
+    observer.observe(gallery);
+}
