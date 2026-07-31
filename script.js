@@ -715,3 +715,104 @@ window.addEventListener("load", function () {
     addHateLine();
 
 });
+/* FINAL LETTER TYPEWRITER */
+
+const finalLetter = `
+And when I die, the bugs are gonna feel the taste of guilt, kindness and most importantly, the taste of a certain person, who courses through my veins as blood, who stays in my heart and with every beat, I'm reminded of her.
+
+To this day I have no idea what I have done without you. From the moment I met you, not a single day has gone by when I haven't thought of you.
+
+You are in my very soul. If anything good ever happened in my life it was you.
+
+You make me who I am Aaratrika even if you don't realise it.
+
+You made me realise how important it is to stand up to others and to your problems.
+
+You complete me.
+
+I know I'm not the bf you deserve. Ik I'm ungrateful and a whiny brat, who keeps on crying and hurting you.
+
+But even if you got a new bf, he would not love you the same way I do.
+
+He would not eat with the same pace I do. He would never see you with the fine details I see you with.
+
+I always work upon myself, using your advice and I'll keep on doing that.
+
+Ik I'm a manchild but I'll change that.
+
+If I ever go wrong somewhere, promise me you'll slap me and remind me who I really am.
+
+You are my Mary, my Gwen, my Hannah, my Ae sun.
+
+You're my everything Aaratrika, my everything.
+
+I love you and I'll always do.
+
+I promise I'll never leave you.
+
+To you till the next 2000 years.
+
+-Aarav
+`;
+
+
+let finalIndex = 0;
+let finalTimer;
+
+
+function startFinalLetter() {
+
+    const box = document.getElementById("finalText");
+
+    if(!box) return;
+
+    box.innerHTML = "";
+    finalIndex = 0;
+
+    clearInterval(finalTimer);
+
+    finalTimer = setInterval(() => {
+
+        if(finalIndex < finalLetter.length) {
+
+            box.innerHTML += finalLetter[finalIndex];
+            finalIndex++;
+
+        } else {
+
+            clearInterval(finalTimer);
+            launchConfetti();
+
+        }
+
+    }, 40);
+}
+
+
+function restartLetter() {
+    startFinalLetter();
+}
+
+
+function launchConfetti() {
+
+    for(let i = 0; i < 80; i++) {
+
+        let piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.top = "-20px";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        },3000);
+    }
+
+}
+
+
+window.addEventListener("load", startFinalLetter);
