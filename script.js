@@ -171,6 +171,15 @@ let started = false;
 // ===============================
 // TYPEWRITER
 // ===============================
+// ===============================
+// WAIT FUNCTION
+// ===============================
+
+function wait(ms) {
+    return new Promise(resolve => {
+        setTimeout(resolve, ms);
+    });
+}
 
 function typeText(element, text, speed = 55) {
 
