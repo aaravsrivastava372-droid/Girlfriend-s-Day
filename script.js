@@ -622,3 +622,8 @@ const promiseObserver = new IntersectionObserver((entries) => {
 promiseCards.forEach(card => {
     promiseObserver.observe(card);
 });
+/* OPEN WHEN LETTERS */
+
+function openLetter(letter) {
+    letter.classList.toggle("open");
+}
