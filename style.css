@@ -1830,3 +1830,163 @@ animation-fill-mode:forwards;
 .hate-cursor {
     color: white !important;
 }
+/* FINAL LETTER SECTION */
+
+.final-section {
+    min-height: 100vh;
+    background: #080808;
+    color: white;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.final-title {
+    font-size: 42px;
+    font-family: Georgia, serif;
+    margin-bottom: 50px;
+}
+
+
+.final-letter {
+    max-width: 850px;
+    text-align: center;
+}
+
+
+#finalText {
+    font-size: 22px;
+    line-height: 1.9;
+    font-family: Georgia, serif;
+    white-space: pre-line;
+}
+
+
+.final-cursor {
+    font-size: 30px;
+    animation: blinkFinal 0.7s infinite;
+}
+
+
+@keyframes blinkFinal {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+.girlfriend-day {
+    margin-top: 60px;
+    font-size: 35px;
+    font-family: Georgia, serif;
+}
+
+
+.replay-btn {
+    margin-top: 40px;
+    padding: 15px 35px;
+    border-radius: 30px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+
+/* Heart constellation */
+
+.heart-constellation span {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: glow 2s infinite alternate;
+}
+
+
+.heart-constellation span:nth-child(1) {
+    top: 20%;
+    left: 45%;
+}
+
+.heart-constellation span:nth-child(2) {
+    top: 25%;
+    left: 40%;
+}
+
+.heart-constellation span:nth-child(3) {
+    top: 25%;
+    left: 50%;
+}
+
+.heart-constellation span:nth-child(4) {
+    top: 35%;
+    left: 35%;
+}
+
+.heart-constellation span:nth-child(5) {
+    top: 35%;
+    left: 55%;
+}
+
+.heart-constellation span:nth-child(6) {
+    top: 45%;
+    left: 40%;
+}
+
+.heart-constellation span:nth-child(7) {
+    top: 45%;
+    left: 50%;
+}
+
+.heart-constellation span:nth-child(8) {
+    top: 55%;
+    left: 45%;
+}
+
+
+@keyframes glow {
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@media(max-width:600px) {
+
+    #finalText {
+        font-size: 17px;
+    }
+
+    .final-title {
+        font-size: 32px;
+    }
+
+    .girlfriend-day {
+        font-size: 25px;
+    }
+}
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: white;
+    animation: fall 3s linear;
+    z-index: 999;
+}
+
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
