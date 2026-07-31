@@ -1745,3 +1745,88 @@ animation-fill-mode:forwards;
 .cursor {
     color: black !important;
 }
+/* SIMPLE FIX - 15 THINGS I LIKE */
+
+.likes-section {
+    min-height: 100vh;
+    background: white;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.likes-title {
+    color: black !important;
+    font-size: 35px;
+    text-align: center;
+}
+
+
+.typewriter-container {
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+}
+
+
+#likeText {
+    color: black !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    font-size: 24px;
+    line-height: 1.8;
+    font-family: Georgia, serif;
+    white-space: pre-line;
+}
+
+
+.cursor {
+    color: black !important;
+    display: inline;
+}
+/* SIMPLE FIX - 10 THINGS I HATE */
+
+.hate-section {
+    min-height: 100vh;
+    background: #111;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.hate-title {
+    color: white !important;
+    font-size: 35px;
+    text-align: center;
+}
+
+
+.hate-typewriter {
+    width: 90%;
+    max-width: 750px;
+    text-align: center;
+}
+
+
+#hateText {
+    color: white !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    font-size: 24px;
+    line-height: 1.8;
+    font-family: Georgia, serif;
+    white-space: pre-line;
+}
+
+
+.hate-cursor {
+    color: white !important;
+}
