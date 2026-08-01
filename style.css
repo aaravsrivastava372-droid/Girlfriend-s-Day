@@ -1990,3 +1990,58 @@ animation-fill-mode:forwards;
         transform: translateY(100vh) rotate(720deg);
     }
 }
+#passwordScreen{
+    text-align:center;
+    max-width:500px;
+    margin:auto;
+}
+
+#passwordScreen h2{
+    color:white;
+    font-size:40px;
+}
+
+#passwordScreen p{
+    color:white;
+    font-size:20px;
+}
+
+#passwordInput{
+
+    padding:15px;
+    width:260px;
+    border-radius:30px;
+    border:none;
+    text-align:center;
+    font-size:18px;
+
+}
+
+#passwordScreen button{
+
+    padding:12px 35px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+#wrongPassword{
+
+    color:#ff6b6b;
+    margin-top:20px;
+    font-size:18px;
+
+}
+/* Make the text behind the vinyl black */
+
+.record-back {
+    color: black !important;
+}
+
+.record-back p {
+    color: black !important;
+    font-size: 18px;
+    font-family: Georgia, serif;
+    line-height: 1.6;
+}
