@@ -816,3 +816,29 @@ function launchConfetti() {
 
 
 window.addEventListener("load", startFinalLetter);
+function checkPassword(){
+
+    const password =
+        document.getElementById("passwordInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if(password === "diet coke"){
+
+        document.getElementById("passwordScreen").style.display="none";
+
+        document.getElementById("finalContent").style.display="block";
+
+        startFinalLetter();
+
+    }
+
+    else{
+
+        document.getElementById("wrongPassword").innerHTML =
+        "Wrong password ❤️ Try remembering our favourite cold drink.";
+
+    }
+
+}
